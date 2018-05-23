@@ -1,0 +1,38 @@
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+
+    {%- if page_paths -%}
+    
+      <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            {% assign pages_list = site.pages %}
+            {% include pages_list.html %}
+            {% assign group = 'navigation' %}
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="app-user navbar-text"></li>
+            <li><a href="javascript:;" class="app-logout">Logout</a></li>
+            <li><a href="javascript:;" class="app-login">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {%- endif -%}
+  </div>
+</header>
